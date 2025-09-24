@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍔 Quiosco de Comida - Next.js 14
 
-## Getting Started
+Aplicación web de un **quiosco de comida** desarrollada con **Next.js 14 (App Router)** y **Prisma**.  
+El sistema permite a los usuarios **realizar pedidos**, al administrador **gestionar productos** y **controlar las órdenes en tiempo real**.  
 
-First, run the development server:
+---
+
+## 🚀 Tecnologías utilizadas
+
+- Next.js 14 con **App Router**
+- TypeScript
+- Prisma como ORM
+- PostgreSQL como base de datos
+- TailwindCSS para estilos
+- Cloudinary para almacenamiento de imágenes
+- SWR para data fetching y revalidación automática
+  
+---
+
+## 📦 Instalación
+
+Clona el repositorio:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/crisomarjs/quiosco-next14
+cd quiosco-next14
+npm install
+````
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Configuración de variables de entorno
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Crea un archivo .env en la raíz con la configuración de tu base de datos y otras variables necesarias para la conexión a Cloudinary:
+```bash
+DATABASE_URL=tu_url_bd
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=
+NEXT_PUBLIC_CLOUDINARY_API_KEY
+CLOUDINARY_API_SECRET=
+````
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📂 Estructura del proyecto
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+app/                # Rutas principales
+ ├── admin/         # Panel de administración
+ ├── order/         # Flujo de pedido del cliente
+ ├── orders/        # Listado de órdenes activas
+ ├── products/      # Gestión y visualización de productos
+ ├── layout.tsx     # Layout global
+ └── page.tsx       # Página inicial del kiosco
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+components/         # Componentes reutilizables
+ ├── admin/
+ ├── order/
+ ├── products/
+ └── ui/
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+prisma/             # Esquemas y migraciones de base de datos
+public/             # Archivos estáticos (imágenes, íconos)
+src/                # Código fuente adicional
+ ├── lib/           # Funciones auxiliares
+ ├── schema/        # Validaciones (ej. con Zod)
+ ├── types/         # Tipos de TypeScript
+ └── utils/         # Funciones utilitarias
 
-## Deploy on Vercel
+````
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✨ Funcionalidades principales
+👨‍🍳 Cliente
+
+Visualizar menú de productos (categorías, precios, imágenes).
+
+Agregar productos al carrito.
+
+Realizar pedido desde el kiosco.
+
+🛠️ Administrador
+
+Gestión de productos (crear, editar) con subida de imágenes a Cloudinary.
+
+Visualización de órdenes en tiempo real.
+
+Control del estado de cada pedido.
